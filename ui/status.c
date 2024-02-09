@@ -109,9 +109,9 @@ void UI_DisplayStatus()
 			if (IS_MR_CHANNEL(gNextMrChannel) && !SCANNER_IsScanning())
 			{	// channel mode
 				switch(gEeprom.SCAN_LIST_DEFAULT) {
-					case 0: s = "1"; break;
-					case 1: s = "2"; break;
-					case 2: s = "*"; break;
+					case 0: s = "   SCAN 1"; break;
+					case 1: s = "   SCAN 2"; break;
+					case 2: s = "   SCAN *"; break;
 				}
 			}
 			else

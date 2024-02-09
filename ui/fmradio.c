@@ -37,17 +37,17 @@ void UI_DisplayFM(void)
 	memset(gFrameBuffer, 0, sizeof(gFrameBuffer));
 
 	memset(String, 0, sizeof(String));
-	strcpy(String, "FM");
+	strcpy(String, "BC-FM BAND");
 	UI_PrintString(String, 0, 127, 0, 12);
 
 	memset(String, 0, sizeof(String));
-
+    strcpy(String, "RECEIVER");
 	UI_PrintString(String, 0, 127, 2, 10);
 
 	memset(String, 0, sizeof(String));
 
 	sprintf(String, "%3d.%d", gEeprom.FM_FrequencyPlaying / 10, gEeprom.FM_FrequencyPlaying % 10);
-	UI_DisplayFrequency(String, 32, 4, true);			
+	UI_DisplayFrequency(String, 32, 4, true);
 
 	ST7565_BlitFullScreen();
 }

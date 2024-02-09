@@ -360,9 +360,9 @@ void UI_DisplayMain(void)
 				{	// show the TX symbol
 					mode = 1;
 #ifdef ENABLE_SMALL_BOLD
-					UI_PrintStringSmallBold("TX", 14, 0, line);
+					UI_PrintStringSmallBold("Tx", 14, 0, line);
 #else
-					UI_PrintStringSmall("TX", 14, 0, line);
+					UI_PrintStringSmall("Tx", 14, 0, line);
 #endif
 				}
 			}
@@ -376,9 +376,9 @@ void UI_DisplayMain(void)
 			     gEeprom.RX_VFO == vfo_num)
 			{
 #ifdef ENABLE_SMALL_BOLD
-				UI_PrintStringSmallBold("RX", 14, 0, line);
+				UI_PrintStringSmallBold("Rx", 14, 0, line);
 #else
-				UI_PrintStringSmall("RX", 14, 0, line);
+				UI_PrintStringSmall("Rx", 14, 0, line);
 #endif
 			}
 		}
@@ -391,7 +391,7 @@ void UI_DisplayMain(void)
 				sprintf(String, "M%u", gEeprom.ScreenChannel[vfo_num] + 1);
 			else
 				sprintf(String, "M%.3s", INPUTBOX_GetAscii());  // show the input text
-			UI_PrintStringSmall(String, x, 0, line + 1);
+			UI_PrintStringSmallBold(String, x, 0, line + 1);
 		}
 		else if (IS_FREQ_CHANNEL(gEeprom.ScreenChannel[vfo_num]))
 		{	// frequency mode
@@ -523,13 +523,13 @@ void UI_DisplayMain(void)
 						}
 						else {
 #ifdef ENABLE_SMALL_BOLD
-							UI_PrintStringSmallBold(String, 32 + 4, 0, line);
+							UI_PrintStringSmallBold(String, 34 + 4, 0, line);
 #else
 							UI_PrintStringSmall(String, 32 + 4, 0, line);
 #endif
 							// show the channel frequency below the channel number/name
-							sprintf(String, "%03u.%05u", frequency / 100000, frequency % 100000);
-							UI_PrintStringSmall(String, 32 + 4, 0, line + 1);
+							sprintf(String, "%03u.%05u MHz", frequency / 100000, frequency % 100000);
+							UI_PrintStringSmallBold(String, 34 + 4, 0, line + 1);
 						}
 
 						break;
@@ -603,7 +603,7 @@ void UI_DisplayMain(void)
 			case MODULATION_FM: {
 				const FREQ_Config_t *pConfig = (mode == 1) ? gEeprom.VfoInfo[vfo_num].pTX : gEeprom.VfoInfo[vfo_num].pRX;
 				const unsigned int code_type = pConfig->CodeType;
-				const char *code_list[] = {"", "CT", "DCS", "DCR"};
+				const char *code_list[] = {"FM", "CT", "DCS", "DCR"};
 				if (code_type < ARRAY_SIZE(code_list))
 					s = code_list[code_type];
 				break;

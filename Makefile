@@ -19,7 +19,7 @@ ENABLE_VOX                    := 1
 ENABLE_ALARM                  := 0
 ENABLE_TX1750                 := 0
 ENABLE_PWRON_PASSWORD         := 1
-ENABLE_DTMF_CALLING           := 0
+ENABLE_DTMF_CALLING           := 1
 
 # ---- CUSTOM MODS ----
 ENABLE_BIG_FREQ                         := 1
@@ -29,9 +29,9 @@ ENABLE_WIDE_RX                          := 1
 ENABLE_TX_WHEN_AM                       := 0
 ENABLE_F_CAL_MENU                       := 0
 ENABLE_SHOW_CHARGE_LEVEL                := 0
-ENABLE_REVERSE_BAT_SYMBOL               := 0
+ENABLE_REVERSE_BAT_SYMBOL               := 1
 ENABLE_NO_CODE_SCAN_TIMEOUT             := 1
-ENABLE_SQUELCH_MORE_SENSITIVE           := 0
+ENABLE_SQUELCH_MORE_SENSITIVE           := 1
 ENABLE_FASTER_CHANNEL_SCAN              := 1
 ENABLE_RSSI_BAR                         := 1
 ENABLE_AUDIO_BAR                        := 1
@@ -44,12 +44,12 @@ ENABLE_SCAN_RANGES                      := 1
 ENABLE_SPECTRUM_COPY_VFO                := 1
 ENABLE_SPECTRUM_SHOW_CHANNEL_NAME       := 1
 ENABLE_SPECTRUM_CHANNEL_SCAN            := 1
-ENABLE_MESSENGER                        := 1
-ENABLE_MESSENGER_DELIVERY_NOTIFICATION  := 1
-ENABLE_MESSENGER_FSK_MUTE               := 1
-ENABLE_MESSENGER_NOTIFICATION           := 1
+ENABLE_MESSENGER                        := 0
+ENABLE_MESSENGER_DELIVERY_NOTIFICATION  := 0
+ENABLE_MESSENGER_FSK_MUTE               := 0
+ENABLE_MESSENGER_NOTIFICATION           := 0
 ENABLE_MESSENGER_UART                   := 0
-ENABLE_ENCRYPTION                       := 1
+ENABLE_ENCRYPTION                       := 0
 
 #############################################################
 
@@ -206,16 +206,16 @@ endif
 OBJCOPY = arm-none-eabi-objcopy
 SIZE = arm-none-eabi-size
 
-AUTHOR_STRING := NUNU
+AUTHOR_STRING := NU-N01
 # the user might not have/want git installed
 # can set own version string here (max 7 chars)
-ifneq (, $(shell $(WHERE) git))
-	VERSION_STRING := $(shell git describe --tags --exact-match 2>$(NULL_OUTPUT))
-	ifeq (, $(VERSION_STRING))
-    	VERSION_STRING := $(shell git rev-parse --short HEAD)
-	endif
-endif
-#VERSION_STRING := 230930b
+#ifneq (, $(shell $(WHERE) git))
+#	VERSION_STRING := $(shell git describe --tags --exact-match 2>$(NULL_OUTPUT))
+#	ifeq (, $(VERSION_STRING))
+#    	VERSION_STRING := $(shell git rev-parse --short HEAD)
+#	endif
+# endif
+VERSION_STRING := V20.5-1
 
 
 ASFLAGS = -c -mcpu=cortex-m0
