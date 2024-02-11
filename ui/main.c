@@ -530,9 +530,9 @@ void UI_DisplayMain(void)
 							// show the channel frequency below the channel number/name
 							sprintf(String, "%03u.%05u", frequency / 100000, frequency % 100000);
 							UI_PrintStringSmallBold(String, 32 + 4, 0, line + 1);
-							
-							sprintf(String, "%d", gEeprom.SQUELCH_LEVEL);
-							UI_PrintStringSmall(String, 110 + 4, 0, line + 1);
+							//show squelch level on frequency line
+							sprintf(String, "Sq%d", gEeprom.SQUELCH_LEVEL);
+							UI_PrintStringSmall(String, 104 + 2, 0, line + 1);
 						}
 
 						break;
@@ -646,12 +646,12 @@ void UI_DisplayMain(void)
 #ifdef ENABLE_DTMF_CALLING
 		// show the DTMF decoding symbol
 		if (gEeprom.VfoInfo[vfo_num].DTMF_DECODING_ENABLE || gSetting_KILLED)
-			UI_PrintStringSmall("DTMF", LCD_WIDTH + 78, 0, line + 1);
+			UI_PrintStringSmall("D", LCD_WIDTH + 114, 0, line + 1);
 #endif
 
 		// show the audio scramble symbol
 		if (gEeprom.VfoInfo[vfo_num].SCRAMBLING_TYPE > 0 && gSetting_ScrambleEnable)
-			UI_PrintStringSmall("SCR", LCD_WIDTH + 106, 0, line + 1);
+			UI_PrintStringSmall("S", LCD_WIDTH + 106, 0, line + 1);
 	}
 
 	if (center_line == CENTER_LINE_NONE)

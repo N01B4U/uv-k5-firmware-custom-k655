@@ -1,4 +1,6 @@
 # Open re-implementation of the Quansheng UV-K5 v2.1.27 firmware
+This repository is a fork of Kamil's work located here: https://github.com/kamilsss655/uv-k5-firmware-custom
+At this stage, the repo is simply a personalized version of Kamil's firmware version 20.5.
 
 <img src="images/radio_picture.jpg" width=300 align="right"/>
 
