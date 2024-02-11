@@ -215,21 +215,21 @@ static void NextMemChannel(void)
 				}
 				[[fallthrough]];
 				
-			// doesn't work if the other VFO is not in channel mode.
+			// this bit doesn't yet work if the other VFO is a frequency
 			case SCAN_NEXT_CHAN_DUAL_WATCH:
 				// dual watch is enabled - include the other VFO in the scan
-				if (gEeprom.DUAL_WATCH != DUAL_WATCH_OFF)
-  			    {
-					chan = (gEeprom.RX_VFO + 1) & 1u;
-				chan = gEeprom.ScreenChannel[chan];
-					if (IS_MR_CHANNEL(chan))
-					{
-						currentScanList = SCAN_NEXT_CHAN_DUAL_WATCH;
-						gNextMrChannel   = chan;
-						break;
-					}
-				}
-                [[fallthrough]];
+//				if (gEeprom.DUAL_WATCH != DUAL_WATCH_OFF)
+//				{
+//					chan = (gEeprom.RX_VFO + 1) & 1u;
+//					chan = gEeprom.ScreenChannel[chan];
+//					if (IS_MR_CHANNEL(chan))
+//					{
+//						currentScanList = SCAN_NEXT_CHAN_DUAL_WATCH;
+//						gNextMrChannel   = chan;
+//						break;
+//					}
+//				}
+
 			default:
 			case SCAN_NEXT_CHAN_MR:
 				currentScanList = SCAN_NEXT_CHAN_MR;

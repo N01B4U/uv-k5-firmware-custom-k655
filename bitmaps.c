@@ -297,8 +297,8 @@ const uint8_t BITMAP_ScanList1[6] =
 {	// 'I' symbol
 	0b00000000,
 	0b00000000,
-	0b01111100,
-	0b01111100,
+	0b01111110,
+	0b01111110,
 	0b00000000,
 	0b00000000
 };
@@ -306,11 +306,11 @@ const uint8_t BITMAP_ScanList1[6] =
 const uint8_t BITMAP_ScanList2[6] =
 {	// 'II' symbol
 	0b00000000,
-	0b01111100,
-	0b01111100,
+	0b01111110,
+	0b01111110,
 	0b00000000,
-	0b01111100,
-	0b01111100
+	0b01111110,
+	0b01111110
 };
 
 const uint8_t BITMAP_compand[6] =

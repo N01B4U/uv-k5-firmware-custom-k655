@@ -519,17 +519,20 @@ void UI_DisplayMain(void)
 						}
 
 						if (gEeprom.CHANNEL_DISPLAY_MODE == MDF_NAME) {
-							UI_PrintString(String, 32, 0, line, 8);
+							UI_PrintString(String, 28, 0, line, 8);
 						}
 						else {
 #ifdef ENABLE_SMALL_BOLD
-							UI_PrintStringSmallBold(String, 34 + 4, 0, line);
+							UI_PrintStringSmallBold(String, 32 + 4, 0, line);
 #else
 							UI_PrintStringSmall(String, 32 + 4, 0, line);
 #endif
 							// show the channel frequency below the channel number/name
-							sprintf(String, "%03u.%05u MHz", frequency / 100000, frequency % 100000);
-							UI_PrintStringSmallBold(String, 34 + 4, 0, line + 1);
+							sprintf(String, "%03u.%05u", frequency / 100000, frequency % 100000);
+							UI_PrintStringSmallBold(String, 32 + 4, 0, line + 1);
+							
+							sprintf(String, "%d", gEeprom.SQUELCH_LEVEL);
+							UI_PrintStringSmall(String, 110 + 4, 0, line + 1);
 						}
 
 						break;
