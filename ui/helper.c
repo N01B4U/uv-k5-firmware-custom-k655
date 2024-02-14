@@ -132,6 +132,7 @@ void UI_PrintStringSmall(const char *pString, uint8_t Start, uint8_t End, uint8_
 			}
 		}
 	}
+
 #endif
 
 void UI_PrintStringSmallBuffer(const char *pString, uint8_t *buffer)

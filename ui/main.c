@@ -359,8 +359,9 @@ void UI_DisplayMain(void)
 				if (activeTxVFO == vfo_num)
 				{	// show the TX symbol
 					mode = 1;
-#ifdef ENABLE_SMALL_BOLD
-					UI_PrintStringSmallBold("Tx", 14, 0, line);
+#ifdef ENABLE_SMALL_BOLD					
+					UI_PrintStringSmallBold("Tx", 110 + 2, 0, line + 1);
+				    UI_PrintStringSmall("<->", 14, 0, line);
 #else
 					UI_PrintStringSmall("Tx", 14, 0, line);
 #endif
@@ -376,7 +377,8 @@ void UI_DisplayMain(void)
 			     gEeprom.RX_VFO == vfo_num)
 			{
 #ifdef ENABLE_SMALL_BOLD
-				UI_PrintStringSmallBold("Rx", 14, 0, line);
+				UI_PrintStringSmallBold("Rx", 110 + 2, 0, line + 1);
+				UI_PrintStringSmall(">-<", 14, 0, line);
 #else
 				UI_PrintStringSmall("Rx", 14, 0, line);
 #endif
@@ -392,6 +394,7 @@ void UI_DisplayMain(void)
 			else
 				sprintf(String, "M%.3s", INPUTBOX_GetAscii());  // show the input text
 			UI_PrintStringSmallBold(String, x, 0, line + 1);
+			
 		}
 		else if (IS_FREQ_CHANNEL(gEeprom.ScreenChannel[vfo_num]))
 		{	// frequency mode
@@ -531,8 +534,9 @@ void UI_DisplayMain(void)
 							sprintf(String, "%03u.%05u", frequency / 100000, frequency % 100000);
 							UI_PrintStringSmallBold(String, 32 + 4, 0, line + 1);
 							//show squelch level on frequency line
-							sprintf(String, "Sq%d", gEeprom.SQUELCH_LEVEL);
-							UI_PrintStringSmall(String, 104 + 2, 0, line + 1);
+							sprintf(String, "S%d", gEeprom.SQUELCH_LEVEL);
+							UI_PrintStringSmall(String, 2, 0, line + 2);
+							
 						}
 
 						break;
